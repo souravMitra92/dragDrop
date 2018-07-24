@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    </head>
+    <body>
+        Hello, world!!!
+        <div>First screen</div>
+        <div class="firstID">
+            <input type="radio" id="exampleRadio" value="opt1"> custom radio 1
+            <input type="text" pattern="[A-Za-z\s]{2,15}" id="fName" disabled> name
+            <input type="tel" pattern="[0-9]{10}" id="phoneNumber" disabled> ph phoneNumber
+            <select id="nameDropdown" disabled>
+                <option value="">Please Select</option>
+            </select>
+            <button id="btnSubmit" disabled>Submit</button>
+        </div>
+        
+        <div id="secondID">
+            <ul id="listID"></ul>
+            <div style="border: 2px solid black; min-height: 200px; width: 50%;" id="selectedIns"></div>
+        </div>
+        
+        <script src="index.js"></script>   
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+            
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+            
+            function drop(ev) {
+                console.log(ev);
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+            </script>     
+    </body>
+</html>
